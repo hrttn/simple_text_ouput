@@ -1,6 +1,6 @@
 <?php
  
-class Simply_Text_Output_Loader {
+class Simple_Text_Output_Loader {
 
 	protected $actions;
 	
@@ -16,7 +16,7 @@ class Simply_Text_Output_Loader {
 	}
 
 	public function add_filter( $hook, $component, $callback ) {
-		this->filters = $this->add($this->filters, $hook, $component, $callback);
+		$this->filters = $this->add($this->filters, $hook, $component, $callback);
 	}
 
 	private function add( $hooks, $hook, $component, $callback ) {
