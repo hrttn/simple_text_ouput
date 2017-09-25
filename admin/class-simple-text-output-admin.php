@@ -89,7 +89,7 @@ class Simple_Text_Output_Admin {
 	 * Print the Section text
 	 */
 	public function print_section_info() {
-		print 'Enter the text you want to be displayed when you use the shortcode [simple-text-input].';
+		print 'Enter the text you want to be displayed when you use the shortcode [simple-text-output].';
 	}
 
 
