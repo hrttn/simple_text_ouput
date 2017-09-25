@@ -27,7 +27,7 @@ class Simple_Text_Output_Admin {
 	public function create_admin_page() {
 		
 		// Set class property
-		$this->options = get_option( 'my_option_name' );
+		$this->options = get_option( 'simple-text-input' );
 		?>
 		<div class="wrap">
 			<h1>Simple Text Output Settings</h1>
@@ -75,7 +75,7 @@ class Simple_Text_Output_Admin {
 	 *
  	 * @param array $input Contains all settings fields as array keys
 	 */
-	public function sanitize( $input ) {
+	private function sanitize( $input ) {
 		$new_input = array();
 
 		if( isset( $input['text-input'] ) ) {
@@ -88,7 +88,7 @@ class Simple_Text_Output_Admin {
 	/** 
 	 * Print the Section text
 	 */
-	public function print_section_info() {
+	private function print_section_info() {
 		print 'Enter the text you want to be displayed when you use the shortcode [simple-text-output].';
 	}
 
@@ -96,9 +96,9 @@ class Simple_Text_Output_Admin {
 	/** 
 	 * Get the settings option array and print one of its values
 	 */
-	public function title_callback() {
+	private function title_callback() {
 		printf(
-			'<input type="text" id="title" name="my_option_name[text-input]" value="%s" />',
+			'<input type="text" id="title" name="simple-text-input[text-input]" value="%s" />',
 			isset( $this->options['text-input'] ) ? esc_attr( $this->options['text-input']) : ''
 		);
 	}
