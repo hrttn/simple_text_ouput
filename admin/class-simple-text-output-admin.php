@@ -4,6 +4,9 @@ class Simple_Text_Output_Admin {
 
 	protected $version;
 
+	protected $options;
+
+
 	public function __construct( $version ) {
 		$this->version = $version;
 
@@ -88,7 +91,7 @@ class Simple_Text_Output_Admin {
 	/** 
 	 * Print the Section text
 	 */
-	private function print_section_info() {
+	public function print_section_info() {
 		print 'Enter the text you want to be displayed when you use the shortcode [simple-text-output].';
 	}
 
@@ -96,7 +99,7 @@ class Simple_Text_Output_Admin {
 	/** 
 	 * Get the settings option array and print one of its values
 	 */
-	private function title_callback() {
+	public function title_callback() {
 		printf(
 			'<input type="text" id="title" name="simple-text-input[text-input]" value="%s" />',
 			isset( $this->options['text-input'] ) ? esc_attr( $this->options['text-input']) : ''

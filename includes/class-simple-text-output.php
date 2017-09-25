@@ -8,6 +8,9 @@ class Simple_Text_Output {
 
 	protected $version;
 
+	protected $options;
+
+
 	public function __construct() {
 
 		$this->plugin_slug = 'simple_text_output-slug';
@@ -15,6 +18,8 @@ class Simple_Text_Output {
 
 		$this->load_dependencies();
 		$this->define_admin_hooks();
+
+		add_shortcode('simple_text_output', array($this, 'shortcode'));
 	}
 
 	private function load_dependencies() {
@@ -40,5 +45,12 @@ class Simple_Text_Output {
 
 	public function get_version() {
 		return $this->version;
+	}
+
+	public function shortcode() {
+		$this->options = get_option( 'simple-text-input' );
+		$text = esc_attr( $this->options['text-input']);
+		
+		return $text;
 	}
 }
